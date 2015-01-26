@@ -1,0 +1,9 @@
+#! /bin/bash
+
+# assign classes to hosts
+
+# no choice here, always installing this class
+echo "FAIBASE DHCPC UBUNTU OS_UBUNTU_1404_AMD64"
+
+ifclass -o I386 AMD64 && echo GRUB_PC
+exit 0

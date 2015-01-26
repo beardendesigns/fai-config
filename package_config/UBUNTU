@@ -1,0 +1,41 @@
+PACKAGES aptitude I386
+linux-image-generic initramfs-tools
+memtest86+
+
+PACKAGES aptitude CHROOT
+linux-image-generic-
+
+PACKAGES aptitude AMD64
+linux-image-generic initramfs-tools
+memtest86+
+
+PACKAGES aptitude DHCPC
+isc-dhcp-client
+
+PACKAGES aptitude GRUB_PC
+grub-pc grub-legacy- lilo-
+
+PACKAGES aptitude UBUNTU
+console-setup
+ca-certificates
+cryptsetup
+libpam-mount
+ubuntu-minimal
+curl
+wget
+vim
+less
+build-essential
+zlib1g-dev
+libssl-dev
+libreadline-gplv3-dev
+openssh-server
+libyaml-dev
+libcurl4-openssl-dev
+libxslt-dev
+libxml2-dev
+git-core
+avahi-daemon
+avahi-utils
+mysql-server
+mysql-client

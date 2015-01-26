@@ -1,0 +1,41 @@
+#! /bin/bash
+
+# Set the hostname
+echo "new-test-machine-`cat /proc/sys/kernel/random/uuid`" > $target/etc/hostname
+
+# Create a local admin user
+$ROOTCMD useradd --password $ROOTPW --groups adm,dialout,cdrom,plugdev,sudo -c "Local Admin,,," --shell /bin/bash deploy
+$ROOTCMD mkdir /home/deploy
+$ROOTCMD chmod 0700 /home/deploy
+$ROOTCMD chown deploy:deploy /home/deploy
+fcopy -ir /home/deploy
+
+# Basic network configuration
+fcopy -v /etc/network/interfaces
+
+# create userscript for installing rvm and ruby
+
+cat >> $target/home/deploy/run_once.sh << EOF
+  cd ~
+
+# Install RVM
+  
+  echo "Installing RVM with Ruby"
+
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+  \curl -sSL https://get.rvm.io | bash -s stable
+  source /home/deploy/.rvm/scripts/rvm
+  rvm install ruby-2.1.2
+  rvm info
+
+  echo "Ruby installed! (unless there were errors)"
+
+EOF
+
+$ROOTCMD chmod 0755 /home/deploy/run_once.sh
+
+$ROOTCMD su -c "cd /home/deploy && git clone https://github.com/chadb/.dotfiles.git && cd .dotfiles && ./link.sh" deploy
+
+$ROOTCMD su -c "/home/deploy/run_once.sh" deploy
+
+$ROOTCMD rm "/home/deploy/run_once.sh"

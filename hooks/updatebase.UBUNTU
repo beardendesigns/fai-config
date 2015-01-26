@@ -1,0 +1,6 @@
+#! /bin/bash
+
+# Import custom apt sources.lists.d
+# sources.lists is copied by LAST/50-misc
+echo "Preparing apt"
+fcopy -v /etc/apt/sources.list.d/fai.list
