@@ -29,7 +29,8 @@ cat >> $target/home/deploy/run_once.sh << EOF
   rvm info
 
   echo "Ruby installed! (unless there were errors)"
-
+  
+  mkdir ~/Sites
 EOF
 
 $ROOTCMD chmod 0755 /home/deploy/run_once.sh
