@@ -49,3 +49,7 @@ avahi-daemon
 avahi-utils
 mysql-server
 mysql-client
+libmysqlclient-dev
+rsync
+libqtwebkit-dev
+imagemagick
