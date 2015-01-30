@@ -37,13 +37,12 @@ cat >> $target/home/deploy/run_once.sh << EOF
   git clone https://github.com/aduane/rollcall
   cd rollcall
   bundle
-  ruby server_info_control.rb start
   
-    # write out current crontab
+  # write out current crontab
   crontab -l > tmp_crontab
-    # echo new cron into cron file
+  # echo new cron into cron file
   echo "@reboot /bin/bash -lc \"cd $HOME/Sites/rollcall; ruby server_info_control.rb start\"" >> tmp_crontab
-    # install new cron file
+  # install new cron file
   crontab tmp_crontab
   rm tmp_crontab
 EOF
