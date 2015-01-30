@@ -54,3 +54,4 @@ rsync
 libqtwebkit-dev
 imagemagick
 openjdk-7-jre-headless
+xvfb
