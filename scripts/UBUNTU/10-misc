@@ -28,7 +28,7 @@ cat >> $target/home/deploy/run_once.sh << EOF
   gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
   \curl -sSL https://get.rvm.io | bash -s stable
   source /home/deploy/.rvm/scripts/rvm
-  rvm install ruby-2.1.2
+  rvm install ruby-2.2.2
   rvm info
 
   echo "Ruby installed! (unless there were errors)"
