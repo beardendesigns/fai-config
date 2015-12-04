@@ -25,7 +25,7 @@ cat >> $target/home/deploy/run_once.sh << EOF
   
   echo "Installing RVM with Ruby"
 
-  gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
   \curl -sSL https://get.rvm.io | bash -s stable
   source /home/deploy/.rvm/scripts/rvm
   rvm install ruby-2.2.2
@@ -33,9 +33,12 @@ cat >> $target/home/deploy/run_once.sh << EOF
 
   echo "Ruby installed! (unless there were errors)"
   
+  gem install bundler
+  echo "Bundler installed too!"
+  
   mkdir ~/Sites
   cd ~/Sites
-  git clone https://github.com/aduane/rollcall
+  git clone https://github.com/beardendesigns/rollcall
   cd rollcall
   bundle
   
