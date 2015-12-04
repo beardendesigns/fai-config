@@ -51,7 +51,7 @@ mysql-server
 mysql-client
 libmysqlclient-dev
 rsync
-libqtwebkit-dev
+libqt5webkit5-dev
 imagemagick
 openjdk-7-jre-headless
 xvfb
