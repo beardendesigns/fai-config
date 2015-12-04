@@ -10,6 +10,9 @@ $ROOTCMD chmod 0700 /home/deploy
 $ROOTCMD chown deploy:deploy /home/deploy
 fcopy -ir /home/deploy
 
+$ROOTCMD locale-gen en_US.UTF-8
+$ROOTCMD update-locale LANG=en_US.UTF-8
+
 # Basic network configuration
 fcopy -v /etc/network/interfaces
 
@@ -21,8 +24,8 @@ cat >> $target/home/deploy/run_once.sh << EOF
   echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwbH/kgQTFMXNWsevWZx6/XAjc4xmfmmatZWDdikRaqTnXYdxNbxz0gKgNGaMRgeZGLI7XtRB1n9FtlLmr7hcm0dtHwWgRiWe4fZ0V9NDivIADbzKSmkajcnJUQxuxQydOqruZrG1spqQ4ZqjIAHRj0uef56GygZFegSabYUvwP0KZbFgbPHsLnPcs1xowdsRywsZuy/dPL3lMQ56x6LW8Sy10wD3HCfZiUlp38IAzG/qOu+WQfolxgMHyfhAHA+Sf8CysujRUJdbJ2nTF1VBgFAw4VmwYMWtF+osR4LnTTGZFPQzzs3x6ZNwZP+TbP1EXfncAIP6bTHmpSkXkr6Tj andrew@Shenandoah.local" > ~/.ssh/authorized_keys
   echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsOJYmOukaWl8wAC2rgA4LsN/IU18inBoexym40/fPiQqH1/RUta+Vln/mN8VU5yrQZSVmtZ+iNPJDI+vdOuxkMMK1G9bp1A/vAJlWQTYKxaFOuGsZKwdhr04ldMdU8Os59NHjrGRdpRY2oiXy7HtwS/MwKyhAT/Aw8wy7XQ2wSZ1ahc2Y8w87fcRLJL/PoGzkuri2BwqpMKcH72fc2xRpJwHyQelEeCA6dx5ye5B6iUOMuelcSodY+JYFZj7cxEi1kr0f9OBZQPIA0Az63AjTK1OAXnZm9KOOxC6tuwQnybCqKfMhn5LysZO0PGDXiReZfR5N5FqkVzvuyMsZUIth chadb@revolutionintheair.local" >> ~/.ssh/authorized_keys
   echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3UhBDIyMg8NbOhf0HEN9rzrb03ANZrKAdOPTHFMQEBrrjMECMdQ0cAKazoIlLSue97QZ+6blZEGpjQ7DFDS+RPcgDdZg65TmqdBLM3qVqCTF96XpWFuMZWQrGX2jm/6EptaDsuIkQLcAcFK/1/ftpevOnx2I5yTz17qKDrhpiH72oW5aAmzz8HTkQzwWRjZFzQlNtPt736zzUcBP4obIuQhWtKPZXM4uqagyL+TjcfnRkn+vjElTZ+epfaL7ffaIS3TkSN/zRyN7/z80lYI80Q57nImHSsgUK+XD7sWwbmyOdmA9VDIfpkr4dp4Lcld50uB05AivAAO08FYiRE6xv chrisk@watchtower.beardendesigns.org" >> ~/.ssh/authorized_keys
-# Install RVM
   
+  # Install RVM
   echo "Installing RVM with Ruby"
 
   gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
